@@ -21,6 +21,16 @@ common_codes = {
     'unmute'        : b"ke 00 01",
     'mutestatus'    : b"ke 00 ff"
 }
+actual_codes['CS570_etc'] = common_codes.copy()
+actual_codes['CS570_etc'].update({
+    'remotecontrollockon'    : b"km 00 01",
+    'remotecontrollockon'    : b"km 00 01",
+    'screenmuteon'           : b"kd 00 01",
+    'screenmuteoff'          : b"kd 00 00",
+    'videooutmuteon'         : b"kd 00 10"
+})
+
+
 actual_codes['LK450_etc'] = common_codes.copy()
 actual_codes['LK450_etc'].update({
     'inputdigitalantenna'   : b"xb 00 00",
@@ -117,7 +127,8 @@ reverse_code_map = {
                     'LV3700', 'LV5400', 'LV5500', 'LV9500', 'LK530', 'LK550', 'PZ750',
                     'PZ950', 'PZ950U'),
     '01C_etc': ('01C', '01C-BA'),
-    '02C_etc': ('02C', '02C-BA', '02C-BH')
+    '02C_etc': ('02C', '02C-BA', '02C-BH'),
+    'CS570_etc': ('CS570', 'CS870')
 }
 all_codes = {}
 # populate model suffix lookup hash
