@@ -24,10 +24,48 @@ common_codes = {
 actual_codes['CS570_etc'] = common_codes.copy()
 actual_codes['CS570_etc'].update({
     'remotecontrollockon'    : b"km 00 01",
-    'remotecontrollockon'    : b"km 00 01",
+    'remotecontrollockoff'    : b"km 00 00",
     'screenmuteon'           : b"kd 00 01",
     'screenmuteoff'          : b"kd 00 00",
-    'videooutmuteon'         : b"kd 00 10"
+    'videooutmuteon'         : b"kd 00 10",
+    'inputdigitalantenna'   : b"xb 00 00",
+    'inputdigitalcable'     : b"xb 00 01",
+    'inputanalogantenna'    : b"xb 00 10",
+    'inputanalogcable'      : b"xb 00 11",
+    'inputav1'              : b"xb 00 20",
+    'inputav2'              : b"xb 00 21",
+    'inputcomp1'            : b"xb 00 40",
+    'inputcomp2'            : b"xb 00 41",
+    'inputrgbpc'            : b"xb 00 60",
+    'inputhdmi1'            : b"xb 00 90",
+    'inputhdmi2'            : b"xb 00 91",
+    'inputhdmi3'            : b"xb 00 92",
+    'inputstatus'           : b"xb 00 ff",
+    'aspectzoom'   	    : b"kc 00 04",
+    'aspectsetbyprogram'    : b"kc 00 06",
+    'aspectjustscan'        : b"kc 00 09",
+    'aspectcinemazoom1'     : b"kc 00 10",
+    'aspectcinemazoom2'     : b"kc 00 11",
+    'aspectcinemazoom3'     : b"kc 00 12",
+    'aspectcinemazoom4'     : b"kc 00 13",
+    'aspectcinemazoom5'     : b"kc 00 14",
+    'aspectcinemazoom6'     : b"kc 00 15",
+    'aspectcinemazoom7'     : b"kc 00 16",
+    'aspectcinemazoom8'     : b"kc 00 17",
+    'aspectcinemazoom9'     : b"kc 00 18",
+    'aspectcinemazoom10'    : b"kc 00 19",
+    'aspectcinemazoom11'    : b"kc 00 1A",
+    'aspectcinemazoom12'    : b"kc 00 1B",
+    'aspectcinemazoom13'    : b"kc 00 1C",
+    'aspectcinemazoom14'    : b"kc 00 1D",
+    'aspectcinemazoom15'    : b"kc 00 1E",
+    'aspectcinemazoom16'    : b"kc 00 1F",
+    'contrastlevel'   	    : b"kg 00 ff",
+    'brightnesslevel'  	    : b"kh 00 ff",
+    'colorlevel'   	    : b"ki 00 ff",
+    'tintlevel'   	    : b"kj 00 ff",
+    'sharpnesslevel'   	    : b"kk 00 ff",
+    'backlightlevel'   	    : b"mg 00 ff"
 })
 
 
@@ -159,7 +197,7 @@ class LGTV:
     #and opens the serial port you may need to change
     #ttyS0 to S1, S2, ect. The rest shouldn't need to change.
     def get_port(self):
-        return serial.Serial(self.port, 9600, 8, serial.PARITY_NONE,
+        return serial.Serial(self.port, 115200, 8, serial.PARITY_NONE,
                 serial.STOPBITS_ONE, xonxoff=0, rtscts=0, timeout=1)
                                     
     def get_port_ensured(self):
