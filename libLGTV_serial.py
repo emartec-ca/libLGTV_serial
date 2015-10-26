@@ -197,7 +197,7 @@ class LGTV:
     #and opens the serial port you may need to change
     #ttyS0 to S1, S2, ect. The rest shouldn't need to change.
     def get_port(self):
-        return serial.Serial(self.port, 115200, 8, serial.PARITY_NONE,
+        return serial.Serial(self.port, 9600, 8, serial.PARITY_NONE,
                 serial.STOPBITS_ONE, xonxoff=0, rtscts=0, timeout=1)
                                     
     def get_port_ensured(self):
